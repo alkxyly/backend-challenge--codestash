@@ -7,6 +7,7 @@
 docker network create backend-challenge-net
 ```
 2 - Executando uma instância do banco postgres
+
 ```
 docker run -p 5432:5432 --name backend-challenge-pg
 --network backend-challenge-net 

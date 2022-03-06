@@ -20,18 +20,25 @@ class DataBaseInsertScheduling(val articleFeingService: ArticleOpenFeingService,
         val pageCount = if (count > limit)  count/limit else limit
         println("page count = "+pageCount)
 
-        val lista : List<ArticleDTO> = articleFeingService.findAll(50,0)
-        lista.map { it -> Article(it.id,
-                                  it.featured,
-                                  it.title,
-                                  it.url,
-                                  it.newsSite,
-                                  it.summary,
-                                  it.publishedAt
-        ) }.forEach { this.articleService.save(it) }
+        saveListFromLimitAndStart(limit = 50,start = 0)
 
-
-        println("Lista "+lista.size)
         println("finish job")
+    }
+    fun getControl() {
+
+    }
+
+    fun saveListFromLimitAndStart(limit: Long, start: Long){
+        val list : List<ArticleDTO> = articleFeingService.findAll(limit, start)
+        if(list.isNotEmpty()){
+            list.map { it -> Article(it.id,
+                it.featured,
+                it.title,
+                it.url,
+                it.newsSite,
+                it.summary,
+                it.publishedAt
+            ) }.forEach { this.articleService.save(it) }
+        }
     }
 }
