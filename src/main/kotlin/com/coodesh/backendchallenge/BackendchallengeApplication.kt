@@ -11,5 +11,5 @@ import org.springframework.scheduling.annotation.EnableScheduling
 class BackendchallengeApplication
 
 fun main(args: Array<String>) {
-	runApplication<BackendchallengeApplication>(*args)
+    runApplication<BackendchallengeApplication>(*args)
 }

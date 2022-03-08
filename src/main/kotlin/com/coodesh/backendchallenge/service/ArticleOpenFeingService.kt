@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 
-@FeignClient(url= "https://api.spaceflightnewsapi.net/v3" , name = "articles")
+@FeignClient(url = "https://api.spaceflightnewsapi.net/v3", name = "articles")
 interface ArticleOpenFeingService {
 
     @GetMapping("/articles/count")

@@ -11,7 +11,7 @@ data class Article(
     val title: String = "",
     val url: String = "",
     val newsSite: String = "",
-    @Column(length = 1024)
+    @Column(length = 5000)
     val summary: String = "",
     val publishedAt: String = ""
-    )
+)

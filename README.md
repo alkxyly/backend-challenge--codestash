@@ -1,11 +1,15 @@
-"# backend-challenge--codestash"
+"# backend-challenge--coodestash"
+
 ## Repositório do Desafio
+
 * https://lab.coodesh.com/public-challenges/back-end-challenge-2021
 
 1 - Criando a rede no docker
+
 ```
 docker network create backend-challenge-net
 ```
+
 2 - Executando uma instância do banco postgres
 
 ```
