@@ -18,35 +18,17 @@ class DataBaseInsertScheduling(
     val articleService: ArticleService,
     val controlService: ControlService) {
 
-     @Scheduled(cron = "1 * * * * *", zone = "America/Sao_Paulo")
+    @Scheduled(cron = "1 * * * * *", zone = "America/Sao_Paulo")
     fun start() {
-        /**
-         * Busca a quantidade total de elementos
-         * Verifica se a quantidade total de elementos cadastrado é igual ao que está vindo da API externa
-         * Se a quantidade cadastrada no banco for menor do que a que ta vindo da api
-         *     Obtém a página que está
-         *     Salva os objetos
-         *     Atualiza a tabela de controle com o campo page + limit
-         * Se for maior existem novos registros
-         * Se for igual o banco está completamente atualizado
-         */
-        val count: Long = articleFeingService.getCount()
-        val control: Control = controlService.findById(1L).get()
-
+         val count: Long = articleFeingService.getCount()
+         val control: Control = controlService.findById(1L).get()
          if(count > control.total){
              saveListFromLimitAndStart(control.limite, control.page)
              controlService.updateControl(control)
          }
 
-
         println(control.toString())
-
-
-        //val limit: Long = 100
-        //val pageCount = if (count > limit) count / limit else limit
-        //saveListFromLimitAndStart(limit = 50, start = 0)
     }
-
 
     @Transactional
     fun saveListFromLimitAndStart(limit: Long, start: Long) {
@@ -54,6 +36,7 @@ class DataBaseInsertScheduling(
         if (list.isNotEmpty()) {
             list.map { it ->
                 Article(
+                    null,
                     it.id,
                     it.featured,
                     it.title,
