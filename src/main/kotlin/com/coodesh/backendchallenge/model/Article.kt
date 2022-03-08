@@ -6,7 +6,9 @@ import javax.persistence.*
 @Table(name = "db_articles")
 data class Article(
     @Id
+    @GeneratedValue
     var id: Long? = null,
+    var idArticle: Long? = null,
     val featured: Boolean = false,
     val title: String = "",
     val url: String = "",
