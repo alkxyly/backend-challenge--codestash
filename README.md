@@ -10,6 +10,19 @@ conexão de outras aplicações.
 
 * https://lab.coodesh.com/public-challenges/back-end-challenge-2021
 
+## Tecnologias utilizadas
+* Kotlin
+* Springboot
+* Postgres
+* Hibernate
+* Maven
+
+## Bibliotecas utilizadas
+* Rest Assured
+* OpenFeing
+* DevTools
+* Scheduled (Job)
+
 1 - Criando a rede no docker
 
 ```
