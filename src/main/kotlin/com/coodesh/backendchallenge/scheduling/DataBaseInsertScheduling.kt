@@ -2,15 +2,13 @@ package com.coodesh.backendchallenge.scheduling
 
 import com.coodesh.backendchallenge.model.Article
 import com.coodesh.backendchallenge.model.ArticleDTO
-import com.coodesh.backendchallenge.model.Control
-import com.coodesh.backendchallenge.repository.ControlRepository
 import com.coodesh.backendchallenge.service.ArticleOpenFeingService
 import com.coodesh.backendchallenge.service.ArticleService
 import com.coodesh.backendchallenge.service.ControlService
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
-import java.util.*
+
 
 @Component
 class DataBaseInsertScheduling(
@@ -20,19 +18,21 @@ class DataBaseInsertScheduling(
 
     @Scheduled(cron = "1 * * * * *", zone = "America/Sao_Paulo")
     fun start() {
-         val count: Long = articleFeingService.getCount()
-         val control: Control = controlService.findById(1L).get()
-         if(count > control.total){
-             saveListFromLimitAndStart(control.limite, control.page)
-             controlService.updateControl(control)
+        val count: Long = articleFeingService.getCount()
+        controlService.findById(1L)
+            .ifPresent {
+                if(count > it.total ){
+                    saveArticlesFromLimitAndStart(it.limite, it.page)
+                    controlService.updateControl(it)
+                    println(it.toString())
+                 }
          }
-
-        println(control.toString())
     }
 
     @Transactional
-    fun saveListFromLimitAndStart(limit: Long, start: Long) {
+    fun saveArticlesFromLimitAndStart(limit: Long, start: Long) {
         val list: List<ArticleDTO> = articleFeingService.findAll(limit, start)
+
         if (list.isNotEmpty()) {
             list.map { it ->
                 Article(
