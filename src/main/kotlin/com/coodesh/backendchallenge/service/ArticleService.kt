@@ -9,11 +9,11 @@ import java.lang.RuntimeException
 @Service
 class ArticleService(val articleRepository: ArticleRepository) {
 
-    fun findAll(page: Int, pageSize: Int) = this.articleRepository.findAll(PageRequest.of(page, pageSize)).content
+    fun findAll(page: Int, pageSize: Int) = articleRepository.findAll(PageRequest.of(page, pageSize)).content
 
-    fun findById(id: Long) = this.articleRepository.findById(id).orElseThrow { RuntimeException("Article not found") }
+    fun findById(id: Long) = articleRepository.findByIdArticle(id).orElseThrow { RuntimeException("Article not found") }
 
-    fun save(article: Article): Article = this.articleRepository.save(article)
+    fun save(article: Article): Article = articleRepository.save(article)
 
     fun update(id: Long, article: Article): Article {
         val articleFound = findById(id)
@@ -29,9 +29,6 @@ class ArticleService(val articleRepository: ArticleRepository) {
     }
 
     fun delete(id: Long) {
-        val article: Article = findById(id);
-        this.articleRepository.delete(article);
+      findById(id).apply { articleRepository.delete(this) }
     }
-
-
 }

@@ -2,16 +2,14 @@ package com.coodesh.backendchallenge.controller
 
 import com.coodesh.backendchallenge.model.Article
 import com.coodesh.backendchallenge.service.ArticleService
-import org.springframework.hateoas.CollectionModel
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
 class ArticlesController(val articleService: ArticleService) {
-    companion object {
-        private const val PAGE_SIZE: Int = 20
-    }
+
+    companion object { private const val PAGE_SIZE: Int = 20 }
 
     @GetMapping
     fun backendChallenge() = ResponseEntity.ok("Back-end Challenge 2021 \uD83C\uDFC5 - Space Flight News")
@@ -32,7 +30,5 @@ class ArticlesController(val articleService: ArticleService) {
 
     @DeleteMapping("/articles/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    fun delete(@PathVariable id: Long) {
-        this.articleService.delete(id);
-    }
+    fun delete(@PathVariable id: Long) { this.articleService.delete(id); }
 }
