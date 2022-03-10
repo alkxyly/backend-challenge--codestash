@@ -21,7 +21,7 @@ class ArticleJobService (
                     controlService.updateControl(it)
                     println(it.toString())
                 }else
-                    println("Data Base updated with API")
+                    println("Data Base updated with API, total = $count")
             }
     }
 

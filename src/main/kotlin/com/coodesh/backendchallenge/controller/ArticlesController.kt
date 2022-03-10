@@ -2,6 +2,10 @@ package com.coodesh.backendchallenge.controller
 
 import com.coodesh.backendchallenge.model.Article
 import com.coodesh.backendchallenge.service.ArticleService
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageImpl
+import org.springframework.data.domain.Pageable
+import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -15,7 +19,10 @@ class ArticlesController(val articleService: ArticleService) {
     fun backendChallenge() = ResponseEntity.ok("Back-end Challenge 2021 \uD83C\uDFC5 - Space Flight News")
 
     @GetMapping("/articles")
-    fun findAll(@RequestParam(defaultValue = "0") page: Int) = this.articleService.findAll(page, PAGE_SIZE)
+    fun findAll(@PageableDefault(size = 10) pageable: Pageable): Page<Article>{
+        val page: Page<Article> = this.articleService.findAll(pageable)
+        return PageImpl(page.content, pageable, page.totalElements)
+    }
 
     @GetMapping("/articles/{id}")
     fun findById(@PathVariable id: Long) = ResponseEntity.ok(articleService.findById(id))
