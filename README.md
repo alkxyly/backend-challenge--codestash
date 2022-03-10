@@ -22,6 +22,7 @@ conexão de outras aplicações.
 * OpenFeing
 * DevTools
 * Scheduled (Job)
+* Hateoas
 
 1 - Criando a rede no docker
 
