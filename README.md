@@ -1,4 +1,4 @@
-## Backend Challenge Coodestash
+## Backend Challenge Coodesh
 
 Este é um desafio para que possamos ver as suas habilidades como Back-end Developer.
 Nesse desafio você deverá desenvolver uma REST API que utilizará os dados do projeto 

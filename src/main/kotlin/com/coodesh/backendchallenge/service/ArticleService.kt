@@ -3,13 +3,14 @@ package com.coodesh.backendchallenge.service
 import com.coodesh.backendchallenge.model.Article
 import com.coodesh.backendchallenge.repository.ArticleRepository
 import org.springframework.data.domain.PageRequest
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import java.lang.RuntimeException
 
 @Service
 class ArticleService(val articleRepository: ArticleRepository) {
 
-    fun findAll(page: Int, pageSize: Int) = articleRepository.findAll(PageRequest.of(page, pageSize)).content
+    fun findAll(pageable: Pageable) = articleRepository.findAll(pageable)
 
     fun findById(id: Long) = articleRepository.findByIdArticle(id).orElseThrow { RuntimeException("Article not found") }
 
