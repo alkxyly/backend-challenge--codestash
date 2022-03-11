@@ -12,12 +12,14 @@ class PageJsonSerializer : JsonSerializer<Page<Any>>() {
     override fun serialize(value: Page<Any>?,
                            gen: JsonGenerator?,
                            serializers: SerializerProvider?) {
-        gen?.writeStartObject()
-        gen?.writeObjectField("content", value?.content)
-        gen?.writeNumberField("size", value?.size ?: 0)
-        gen?.writeNumberField("totalElements", value?.totalElements ?: 0)
-        gen?.writeNumberField("totalPages", value?.totalPages ?: 0)
-        gen?.writeNumberField("number", value?.number ?: 0)
-        gen?.writeEndObject()
+        gen?.run {
+            writeStartObject()
+            writeObjectField("content", value?.content)
+            writeNumberField("size", value?.size ?: 0)
+            writeNumberField("totalElements", value?.totalElements ?: 0)
+            writeNumberField("totalPages", value?.totalPages ?: 0)
+            writeNumberField("number", value?.number ?: 0)
+            writeEndObject()
+        }
     }
 }
