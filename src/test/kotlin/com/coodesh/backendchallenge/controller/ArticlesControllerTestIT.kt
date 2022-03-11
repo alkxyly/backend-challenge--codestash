@@ -16,13 +16,17 @@ class ArticlesControllerTestIT{
     @LocalServerPort
     private var port: Int = 0
 
+
+
     @BeforeEach
     fun setup(){
+        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails()
         RestAssured.port = port
+        RestAssured.basePath = "/articles"
     }
 
     @Test
-    fun createArticle(){
+    fun whenCreateArticleThenReturnSuccess(){
         val createArticleJSON = """ 
             {
                     "featured": false,
@@ -36,13 +40,36 @@ class ArticlesControllerTestIT{
 
         RestAssured.given()
             .contentType(ContentType.JSON)
-            .body(createArticleJSON)
-            .post("/articles")
+                .body(createArticleJSON)
+                .post("/articles")
             .then()
-            .statusCode(HttpStatus.CREATED.value())
-            .body("id", IsNull.notNullValue())
-            .body("featured", IsEqual.equalTo(false))
-            .body("title", IsEqual.equalTo("TITLE TEST"))
-            .body("url", IsEqual.equalTo("URL TEST"))
+                .statusCode(HttpStatus.CREATED.value())
+                .body("id", IsNull.notNullValue())
+                .body("featured", IsEqual.equalTo(false))
+                .body("title", IsEqual.equalTo("TITLE TEST"))
+                .body("url", IsEqual.equalTo("URL TEST"))
+    }
+
+    @Test
+    fun whenFindByIdThenReturnSuccess(){
+        RestAssured.given()
+                .pathParam("id", 14185)
+                .accept(ContentType.JSON)
+            .`when`()
+                .get("/{id}")
+            .then()
+                .statusCode(HttpStatus.OK.value())
+                .body("title", IsEqual.equalTo("UK bans space-related exports to Russia"))
+    }
+
+    @Test
+    fun whenFindByIdThenReturnStatus404(){
+        RestAssured.given()
+                .pathParam("id", -1)
+                .accept(ContentType.JSON)
+            .`when`()
+                .get("/{id}")
+            .then()
+                .statusCode(HttpStatus.NOT_FOUND.value())
     }
 }

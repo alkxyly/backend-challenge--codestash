@@ -2,6 +2,7 @@ package com.coodesh.backendchallenge.controller
 
 import com.coodesh.backendchallenge.model.Article
 import com.coodesh.backendchallenge.service.ArticleService
+import feign.Response
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
@@ -25,7 +26,14 @@ class ArticlesController(val articleService: ArticleService) {
     }
 
     @GetMapping("/articles/{id}")
-    fun findById(@PathVariable id: Long) = ResponseEntity.ok(articleService.findById(id))
+    fun findById(@PathVariable id: Long) : ResponseEntity<Any>{
+        try {
+           val article: Article = articleService.findById(id)
+           return ResponseEntity.ok(article)
+        }catch (e: RuntimeException){
+           return  ResponseEntity.notFound().build()
+        }
+    }
 
     @PostMapping("/articles")
     @ResponseStatus(code = HttpStatus.CREATED)
