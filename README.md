@@ -80,3 +80,16 @@ postgres:12-alpine
 
 ## ✅ Demonstração da aplicação
 
+### Autor
+---
+
+<a href="https://blog.rocketseat.com.br/author/thiago/">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/4734174?s=200&v=10" width="100px;" alt=""/>
+ <br />
+ <sub><b>Alkxyly Samyr</b></sub></a> <a href="" title="Git Hub">🚀</a>
+
+
+Feito com ❤️ por Alkxyly Samyr 👋🏽 Entre em contato!
+
+[![Linkedin Badge](https://img.shields.io/badge/-Alkxyly-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/alkxyly/)](https://www.linkedin.com/in/alkxyly/)
+[![Gmail Badge](https://img.shields.io/badge/-alkxyly@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:alkxyly@gmail.com)](mailto:tgmarinho@gmail.com)
