@@ -2,6 +2,7 @@ package com.coodesh.backendchallenge.controller
 
 import  io.restassured.RestAssured
 import io.restassured.http.ContentType
+import org.assertj.core.api.HamcrestCondition
 import org.hamcrest.core.IsEqual
 import org.hamcrest.core.IsNull
 import org.junit.jupiter.api.BeforeEach
@@ -16,8 +17,6 @@ class ArticlesControllerTestIT{
     @LocalServerPort
     private var port: Int = 0
 
-
-
     @BeforeEach
     fun setup(){
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails()
@@ -26,7 +25,7 @@ class ArticlesControllerTestIT{
     }
 
     @Test
-    fun whenCreateArticleThenReturnSuccess(){
+    fun whenCreateThenReturnSuccess(){
         val createArticleJSON = """ 
             {
                     "featured": false,
@@ -71,5 +70,15 @@ class ArticlesControllerTestIT{
                 .get("/{id}")
             .then()
                 .statusCode(HttpStatus.NOT_FOUND.value())
+    }
+
+    @Test
+    fun whenFindAllThenReturnSuccess(){
+        RestAssured.given()
+                .accept(ContentType.JSON)
+            .`when`()
+                .get()
+            .then()
+                 .statusCode(HttpStatus.OK.value())
     }
 }
