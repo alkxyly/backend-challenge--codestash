@@ -1,28 +1,52 @@
-## Backend Challenge Coodesh
+<h1 align="center">Backend Challenge Coodesh</h1>
 
-Este é um desafio para que possamos ver as suas habilidades como Back-end Developer.
+##  ✅ Descrição do Projeto
+<p align="center">Este é um desafio para que possamos ver as suas habilidades como Back-end Developer.
 Nesse desafio você deverá desenvolver uma REST API que utilizará os dados do projeto 
 Space Flight News, uma API pública com informações relacionadas a voos espaciais. 
 O projeto a ser desenvolvido por você tem como objetivo criar a API permitindo assim a 
-conexão de outras aplicações.
+conexão de outras aplicações.</p>
 
-## Repositório do Desafio
 
+<p align="center">
+• <a href="#repositorio">Repositório do desafio</a> •
+ <a href="#tecnologias">Tecnologias</a> •
+ <a href="#bibliotecas">Bibliotecas</a> •
+ <a href="#bibliotecas">Ferramentas</a> •
+ <a href="#build">Build</a> •
+</p>
+
+##  ✅ Repositório do Desafio
 * https://lab.coodesh.com/public-challenges/back-end-challenge-2021
 
-## Tecnologias utilizadas
-* Kotlin
+##  🛠 Tecnologias
+* [Kotlin](https://kotlinlang.org/)
 * Springboot
 * Postgres
 * Hibernate
 * Maven
+* Docker
 
-## Bibliotecas utilizadas
+##  ✅ Bibliotecas
 * Rest Assured
 * OpenFeing
 * DevTools
 * Scheduled (Job)
 * Hateoas
+
+##  ✅ Ferramentas
+* Postman
+* IntelliJ IDEA
+* PgAdmin 4
+
+##  ✅ Features
+
+- [x] Job para popular o banco de dados
+- [x] Apis para listar todos e por id, cadastrar, atualizar e deletar artigos
+- [x] Testes de integração utilizando RestAssured
+- [ ] Documentação utilizando Swagger 3.0
+- [ ] Tolerância a falhas ao consultar API externa
+
 
 1 - Criando a rede no docker
 
@@ -50,4 +74,9 @@ postgres:12-alpine
 ```
 4 - Execute os comandos SQL's dentro de algum client, como por exemplo PGAdmin 4
 
+## 🎲 Rodando o Back End (servidor)
+
+## ✅ Pré-requisitos e como rodar a aplicação/testes
+
+## ✅ Demonstração da aplicação
 
