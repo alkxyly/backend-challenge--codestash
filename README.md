@@ -83,7 +83,7 @@ postgres:12-alpine
 ### Autor
 ---
 
-<a href="https://blog.rocketseat.com.br/author/thiago/">
+<a href="">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/4734174?s=200&v=10" width="100px;" alt=""/>
  <br />
  <sub><b>Alkxyly Samyr</b></sub></a> <a href="" title="Git Hub">🚀</a>
