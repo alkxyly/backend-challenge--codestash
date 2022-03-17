@@ -12,12 +12,13 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-class ArticlesController(val articleService: ArticleService) {
+class ArticlesController(val articleService: ArticleService) : ArticleOpenApi {
 
     companion object { private const val PAGE_SIZE: Int = 20 }
 
+
     @GetMapping
-    fun backendChallenge() = ResponseEntity.ok("Back-end Challenge 2021 \uD83C\uDFC5 - Space Flight News")
+    override fun backendChallenge() = ResponseEntity.ok("Back-end Challenge 2021 \uD83C\uDFC5 - Space Flight News")
 
     @GetMapping("/articles")
     fun findAll(@PageableDefault(size = 10) pageable: Pageable): Page<Article>{
@@ -26,7 +27,7 @@ class ArticlesController(val articleService: ArticleService) {
     }
 
     @GetMapping("/articles/{id}")
-    fun findById(@PathVariable id: Long) : ResponseEntity<Any>{
+    override fun findById(@PathVariable id: Long) : ResponseEntity<Any>{
         try {
            val article: Article = articleService.findById(id)
            return ResponseEntity.ok(article)
