@@ -92,4 +92,4 @@ postgres:12-alpine
 Feito com ❤️ por Alkxyly Samyr 👋🏽 Entre em contato!
 
 [![Linkedin Badge](https://img.shields.io/badge/-Alkxyly-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/alkxyly/)](https://www.linkedin.com/in/alkxyly/)
-[![Gmail Badge](https://img.shields.io/badge/-alkxyly@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:alkxyly@gmail.com)](mailto:tgmarinho@gmail.com)
+[![Gmail Badge](https://img.shields.io/badge/-alkxyly@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:alkxyly@gmail.com)](mailto:alkxyly@gmail.com)
