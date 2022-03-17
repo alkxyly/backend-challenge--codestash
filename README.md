@@ -33,6 +33,7 @@ conexão de outras aplicações.</p>
 * DevTools
 * Scheduled (Job)
 * Hateoas
+* Twillio (Integração com WhatsApp)
 
 ##  ✅ Ferramentas
 * Postman
