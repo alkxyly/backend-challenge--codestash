@@ -45,8 +45,10 @@ conexão de outras aplicações.</p>
 - [x] Job para popular o banco de dados
 - [x] Apis para listar todos e por id, cadastrar, atualizar e deletar artigos
 - [x] Testes de integração utilizando RestAssured
-- [ ] Documentação utilizando Swagger 3.0
+- [x] Notificação com WhatsApp
+- [x] Documentação utilizando Swagger 3.0
 - [ ] Tolerância a falhas ao consultar API externa
+
 
 
 1 - Criando a rede no docker
