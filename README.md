@@ -21,18 +21,20 @@ conexão de outras aplicações.</p>
 
 ##  🛠 Tecnologias
 * [Kotlin](https://kotlinlang.org/)
-* Springboot
-* Postgres
-* Hibernate
-* Maven
-* Docker
+* [Springboot](https://spring.io/projects/spring-boot)
+* [Postgres](https://www.postgresql.org/)
+* [Hibernate](https://hibernate.org/)
+* [Maven](https://maven.apache.org/)
+* [Docker](https://www.docker.com/)
 
 ##  ✅ Bibliotecas
-* Rest Assured
-* OpenFeing
-* DevTools
-* Scheduled (Job)
-* Hateoas
+* [Rest Assured](https://rest-assured.io/)
+* [OpenFeing](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/)
+* [DevTools](https://docs.spring.io/spring-boot/docs/1.5.16.RELEASE/reference/html/using-boot-devtools.html)
+* [Scheduled (Job)](https://spring.io/guides/gs/scheduling-tasks/)
+* [Hateoas](https://spring.io/projects/spring-hateoas)
+* [Twillio (Integração com WhatsApp)](https://www.twilio.com/pt-br/)
+* [Resilience4J](https://resilience4j.readme.io/docs)
 
 ##  ✅ Ferramentas
 * Postman
@@ -44,8 +46,10 @@ conexão de outras aplicações.</p>
 - [x] Job para popular o banco de dados
 - [x] Apis para listar todos e por id, cadastrar, atualizar e deletar artigos
 - [x] Testes de integração utilizando RestAssured
-- [ ] Documentação utilizando Swagger 3.0
+- [x] Notificação com WhatsApp
+- [x] Documentação utilizando Swagger 3.0
 - [ ] Tolerância a falhas ao consultar API externa
+
 
 
 1 - Criando a rede no docker
