@@ -1,8 +1,13 @@
 package com.coodesh.backendchallenge.service
 
+import com.coodesh.backendchallenge.core.circuitbreaker.CircuitBreakerConfig
 import com.coodesh.backendchallenge.model.Article
 import com.coodesh.backendchallenge.model.ArticleDTO
+import com.coodesh.backendchallenge.notification.Notification
 import com.coodesh.backendchallenge.scheduling.JobScheduler
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
 
@@ -10,8 +15,12 @@ import org.springframework.transaction.annotation.Transactional
 class ArticleJobService (
     val articleOpenFeingService: ArticleOpenFeingService,
     val articleService: ArticleService,
-    val controlService: ControlService): JobScheduler{
+    val controlService: ControlService,
+    val notification: Notification): JobScheduler{
 
+    private val logger: Logger = LoggerFactory.getLogger(ArticleJobService::class.java)
+
+    @CircuitBreaker(name = "articleCB", fallbackMethod = "runWithNotification")
     override fun run() {
         val count: Long = articleOpenFeingService.getCount()
         controlService.findById(1L)
@@ -19,9 +28,9 @@ class ArticleJobService (
                 if(count > it.total ){
                     saveArticlesFromLimitAndStart(it.limite, it.page)
                     controlService.updateControl(it)
-                    println(it.toString())
+                    logger.info("saving article $it")
                 }else
-                    println("Data Base updated with API, total = $count")
+                    logger.info("Database updated")
             }
     }
 
@@ -42,5 +51,10 @@ class ArticleJobService (
                 )
             }.forEach { this.articleService.save(it) }
         }
+    }
+
+    fun runWithNotification(e: RuntimeException){
+        logger.info("Sending notification")
+        notification.sendMessage("+14155238886","+557996568448","A API externa para consultar artigos está indisponível")
     }
 }

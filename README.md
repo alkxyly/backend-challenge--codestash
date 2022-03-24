@@ -21,19 +21,20 @@ conexão de outras aplicações.</p>
 
 ##  🛠 Tecnologias
 * [Kotlin](https://kotlinlang.org/)
-* Springboot
-* Postgres
-* Hibernate
-* Maven
-* Docker
+* [Springboot](https://spring.io/projects/spring-boot)
+* [Postgres](https://www.postgresql.org/)
+* [Hibernate](https://hibernate.org/)
+* [Maven](https://maven.apache.org/)
+* [Docker](https://www.docker.com/)
 
 ##  ✅ Bibliotecas
-* Rest Assured
-* OpenFeing
-* DevTools
-* Scheduled (Job)
-* Hateoas
-* Twillio (Integração com WhatsApp)
+* [Rest Assured](https://rest-assured.io/)
+* [OpenFeing](https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/)
+* [DevTools](https://docs.spring.io/spring-boot/docs/1.5.16.RELEASE/reference/html/using-boot-devtools.html)
+* [Scheduled (Job)](https://spring.io/guides/gs/scheduling-tasks/)
+* [Hateoas](https://spring.io/projects/spring-hateoas)
+* [Twillio (Integração com WhatsApp)](https://www.twilio.com/pt-br/)
+* [Resilience4J](https://resilience4j.readme.io/docs)
 
 ##  ✅ Ferramentas
 * Postman
